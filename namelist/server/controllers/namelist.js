@@ -6,8 +6,13 @@ module.exports = ( () => {
             response.render('index', {nameList: namelist});
         }
         , addName: (request, response) => {
+            if(request.body.name.length > 0)
+                namelist.push(request.body.name);
+            response.redirect('/');
+        }
+        , clearList: (request, response) => {
             // console.log(request.body.name)
-            namelist.push(request.body.name);
+            namelist = [];
             response.redirect('/');
         }
     }

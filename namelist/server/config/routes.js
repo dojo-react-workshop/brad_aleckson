@@ -9,4 +9,5 @@ module.exports = (app) => {
     // })
 	app.get('/', namelist.homePage);
 	app.post('/name', namelist.addName);
+	app.get('/clear', namelist.clearList);
 }

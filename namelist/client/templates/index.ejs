@@ -6,20 +6,26 @@
       <script type="text/javascript">
         $('document').ready(() => {
             $('input[type=text]').focus();
+
+            $('.clear').click((e) => {
+
+
+            })
         });
       </script>
 </head>
-<body>
+<body style="font-family:verdana;">
     <h1>Name list</h1>
     <form action='/name' method='post'>
         <input type='text' placeholder='Enter Name' name='name' id='name' fo>
         <button>Add Name</button>
     </form>
 
-    <div style="width:300px; height:300px; border:1px solid gray;">
+    <div style="width:300px; height:300px; border:1px solid gray;overflow-y:scroll;">
         <% nameList.forEach( (el, index) => { %>
                 <div><%=(index+1 > 9 ? index+1 : ("0" + (index+1))) %>.) <%=el%></div>
         <% });  %>
     </div>    
+    <a href="/clear">Clear</a>
 </body>
 </html>
