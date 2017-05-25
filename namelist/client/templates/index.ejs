@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Name List exercise</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        $('document').ready(() => {
+            $('input[type=text]').focus();
+        });
+      </script>
+</head>
+<body>
+    <h1>Name list</h1>
+    <form action='/name' method='post'>
+        <input type='text' placeholder='Enter Name' name='name' id='name' fo>
+        <button>Add Name</button>
+    </form>
+
+    <div style="width:300px; height:300px; border:1px solid gray;">
+        <% nameList.forEach( (el, index) => { %>
+                <div><%=(index+1 > 9 ? index+1 : ("0" + (index+1))) %>.) <%=el%></div>
+        <% });  %>
+    </div>    
+</body>
+</html>
