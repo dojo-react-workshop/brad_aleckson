@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Survey Form</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        $('document').ready(() => {
+            console.log('page is ready')
+            $('button').click( (e) => {
+                // e.preventDefault();
+                console.log('button clicked');
+                $('form').submit();
+                console.log('shoudl have submitted form');
+            });
+        });
+      </script>
+   </head>
+   <body>
+       <div id="wrapper">
+         <form action="/result" method="post">
+             <label>Your name:</label>
+             <input name="name" id="name" placeholder="Your name">
+             <br>
+             <label>Dojo Location:</label>
+             <select name="location" id="location">
+                 <option value="Mountain View">Mountain View</option>
+                 <option value="Milwaukee">Milwaukee</option>
+                 <option value="Chicago">Chicago</option>
+             </select>
+             <br>
+             <label>Favorite Language:</label>
+             <select name="language" id="language">
+                 <option value="JavaScript">JavaScript</option>
+                 <option value="VB Script">VB Script</option>
+                 <option value="COBOL">COBOL</option>
+             </select>
+             <br>
+             <label>Comments:</label>
+             <br>
+             <textarea name="comments" id="comments" cols=40 rows=15></textarea>
+             <br>
+             <button>Submit</button>
+
+         </form>
+      </div><!-- end of wrapper -->
+   </body>
+</html>
