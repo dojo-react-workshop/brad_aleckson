@@ -1,5 +1,18 @@
 <html>
     <head>
+        <style>
+            body
+            {
+                font-size:25px;
+                font-weight:bold;
+            }
+            #app div div
+            {
+                display:inline-block;
+                height:250px;
+                width:200px;
+            }
+        </style>
         <script src=".\node_modules\react\dist\react.js"></script>
         <script src=".\node_modules\react-dom\dist\react-dom.js"></script>
     </head>
@@ -9,22 +22,22 @@
             const Square = (props) => {
                 const { squares } = props;
                 let listItems = squares.map( (currentItem, index) => {
-                        return React.createElement('li', {key: `qweqwe${index}`, style: currentItem.styling}, currentItem.text);
-                     });
+                    return React.createElement('div', {key: `${index}`, style: currentItem.styling}, `${currentItem.styling.backgroundColor} on ${currentItem.styling.color}`);
+                 });
                  return React.createElement(
                      'div', 
                      null, 
                      listItems
                 );                
             }
-            
+
             var container = document.getElementById('app');
             ReactDOM.render(React.createElement(Square, {
                     squares :
                         [
-                            {text: "white on blue", styling : {display:'inline-block', backgroundColor:'blue', color:'white', height:'250px', width:'150px'}},
-                            {text: "blue on red", styling : {display:'inline-block', backgroundColor:'red', color:'blue', height:'250px', width:'150px'}},
-                            {text: "green on pink", styling : {display:'inline-block', backgroundColor:'pink', color:'green', height:'250px', width:'150px'}}
+                            {styling : {backgroundColor:'blue', color:'white'}},
+                            {styling : {backgroundColor:'red', color:'blue'}},
+                            {styling : {backgroundColor:'pink', color:'green'}}
                         ]}), container);
         </script>
     </body>
