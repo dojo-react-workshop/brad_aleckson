@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src=".\node_modules\react\dist\react.js"></script>
+        <script src=".\node_modules\react-dom\dist\react-dom.js"></script>
+    </head>
+    <body>
+        <div id='app'>
+            
+        </div>
+        <script>
+            const container = document.getElementById('app');
+            const paintClock = () => {
+                const time = new Date().toLocaleTimeString();
+                const content = React.createElement('h1', null, `The time is: ${time}`);
+                ReactDOM.render(content, container);
+            }
+            paintClock();
+            setInterval(paintClock, 1000);
+        </script>
+    </body>
+</html>

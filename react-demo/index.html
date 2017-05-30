@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style media="screen">
+        .demo {
+            border: 1px solid #ccc;
+            margin: 1em;
+            padding: 1em;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>React Demo</title>
+    <script src=".\node_modules\react\dist\react.js"></script>
+    <script src=".\node_modules\react-dom\dist\react-dom.js"></script>
+  </head>
+  <body>
+      <div id="js"></div>
+      <div id="react"></div>
+      <script>
+        let text = 'A';
+        const jsContainer = document.getElementById("js");
+        const reactContainer = document.getElementById("react");
+        const render = () => {
+          jsContainer.innerHTML = `
+                                <div class="demo">
+                                    Hello JS
+                                    <input type="text" />
+                                    <p>${new Date}</p>
+                                </div>
+                                `;
+        }
+        render();
+        setInterval(render, 1000);
+
+        function renderreact() {
+        ReactDOM.render(
+            text += 'A';
+            React.createElement(
+                    'div',
+                    { className: "demo" }, 
+                    text,
+                    React.createElement('input'),
+                    React.createElement('p', null, `${new Date}`)
+                    , reactContainer);
+        }
+        renderreact();
+        setInterval(renderreact, 1000);
+      </script>
+  </body>
+</html>
