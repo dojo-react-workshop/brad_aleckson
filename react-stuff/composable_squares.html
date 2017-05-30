@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src=".\node_modules\react\dist\react.js"></script>
+        <script src=".\node_modules\react-dom\dist\react-dom.js"></script>
+    </head>
+    <body>
+        <div id='app'></div>
+        <script>
+            const Square = (props) => {
+                const { squares } = props;
+                let listItems = squares.map( (currentItem, index) => {
+                        return React.createElement('li', {key: `qweqwe${index}`, style: currentItem.styling}, currentItem.text);
+                     });
+                 return React.createElement(
+                     'div', 
+                     null, 
+                     listItems
+                );                
+            }
+            // var h1 = React.createElement('div', {style : {display:'inline-block', backgroundColor:'blue', color:'white', height:'250px', width:'150px'}}, "white on blue");
+            // var h2 = React.createElement('div', {style : {display:'inline-block', backgroundColor:'red',color:'blue', height:'250px', width:'150px'}}, "blue on red");
+            // var h3 = React.createElement('div', {style : {display:'inline-block', backgroundColor:'pink',color:'green', height:'250px', width:'150px'}}, "green on pink");
+            var container = document.getElementById('app');
+            ReactDOM.render(React.createElement(Square, {
+                    squares :
+                        [
+                            {text: "white on blue", styling : {display:'inline-block', backgroundColor:'blue', color:'white', height:'250px', width:'150px'}},
+                            {text: "blue on red", styling : {display:'inline-block', backgroundColor:'red', color:'blue', height:'250px', width:'150px'}},
+                            {text: "green on pink", styling : {display:'inline-block', backgroundColor:'pink', color:'green', height:'250px', width:'150px'}}
+                        ]}), container);
+        </script>
+    </body>
+</html>

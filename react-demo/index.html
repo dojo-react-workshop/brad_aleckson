@@ -33,15 +33,15 @@
         setInterval(render, 1000);
 
         function renderreact() {
-        ReactDOM.render(
             text += 'A';
+        ReactDOM.render(
             React.createElement(
                     'div',
                     { className: "demo" }, 
                     text,
                     React.createElement('input'),
                     React.createElement('p', null, `${new Date}`)
-                    , reactContainer);
+        ), reactContainer);
         }
         renderreact();
         setInterval(renderreact, 1000);
