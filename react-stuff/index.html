@@ -1,37 +1,70 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <script src=".\node_modules\react\dist\react.js"></script>
-        <script src=".\node_modules\react-dom\dist\react-dom.js"></script>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     </head>
     <body>
-        <div id='app'></div>
-        <script>
-            var h1 = React.createElement('h1', null, "Hello Joe Barry Carroll");
-            var container = document.getElementById('app');
-            const myListItem = (props) => {
-                 console.log(`props: ${props}`)
-                const { item } = props;
-                 console.log(`item: ${item}`)
-                 return React.createElement('li', null, item)
+        <div id="react"></div>
+        <script type="text/babel">
+            'use strict';
+            const languages = [
+                {
+                    name: 'React',
+                    votes: 0
+                },
+                {
+                    name: 'Vue',
+                    votes: 0
+                },
+                {
+                    name: 'Angular',
+                    votes: 0
+                },
+                {
+                    name: 'Ember',
+                    votes: 0
+                }
+            ]
+            const Container = (props) => {
+                const languages = props.languages.map((languageObj, idx) => {
+                    return <Language key={idx} languageData={languageObj}/>
+                })
+                return (
+                    <div>
+                        <h1>Vote Your JS Library</h1>
+                        {languages}
+                    </div>
+                )
                 
             }
-            const MyList = (props) => {
-                const { items } = props;
-                let listItems = items.map( (currentItem, index) => {
-                        return React.createElement('li', {key: `qweqwe${index}`}, currentItem);
-                     });
-                 return React.createElement(
-                     'ul', 
-                     null, 
-                     listItems
-                );                
+            const Language = (props) => {
+                const { languageData } = props;
+                const style = {
+                    height: '275px',
+                    width: '275px',
+                    display: 'inline-block',
+                    fontSize: '20px',
+                    color: colorData.text,
+                    backgroundColor: colorData.background
+                };
+                 const text = `${style.color} on ${style.backgroundColor}`;
+                return (
+                    <div>{languageData.votes}</div>
+                    <div>{languageData.name}</div>
+                    <button>Vote!</button>
+                );
             }
             ReactDOM.render(
-                React.createElement('div', null,
-                    React.createElement('h1', null, "Hello Dojo!"),
-                    React.createElement('h3', null, "Things I need to do"),
-                    React.createElement(MyList, {items: ["Learn React", "Climb Mt. Everest", "Run a marathon", "Feed the dogs"]}, null)
-                ), container);
+                <Container languages={languages}/>,
+                document.getElementById('react')
+            )
         </script>
+
+    
     </body>
 </html>

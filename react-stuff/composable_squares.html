@@ -3,26 +3,27 @@
         <style>
             body
             {
-                font-size:25px;
-                font-weight:bold;
+                font-size:35px;
+                font-family:'Times New Roman', Times, serif;
             }
             #app div div
             {
                 display:inline-block;
-                height:250px;
-                width:200px;
+                height:275px;
+                width:275px;
             }
         </style>
         <script src=".\node_modules\react\dist\react.js"></script>
         <script src=".\node_modules\react-dom\dist\react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     </head>
     <body>
         <div id='app'></div>
-        <script>
+        <script type="text/babel">
             const Square = (props) => {
                 const { squares } = props;
                 let listItems = squares.map( (currentItem, index) => {
-                    return React.createElement('div', {key: `${index}`, style: currentItem.styling}, `${currentItem.styling.backgroundColor} on ${currentItem.styling.color}`);
+                    return React.createElement('div', {key: `${index}`, style: currentItem.styling}, `${currentItem.styling.color} on ${currentItem.styling.backgroundColor}`);
                  });
                  return React.createElement(
                      'div', 
@@ -37,7 +38,8 @@
                         [
                             {styling : {backgroundColor:'blue', color:'white'}},
                             {styling : {backgroundColor:'red', color:'blue'}},
-                            {styling : {backgroundColor:'pink', color:'green'}}
+                            {styling : {backgroundColor:'pink', color:'green'}},
+                            {styling : {backgroundColor:'fuchsia', color:'lavender'}}
                         ]}), container);
         </script>
     </body>

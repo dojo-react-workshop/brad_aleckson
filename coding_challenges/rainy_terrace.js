@@ -36,3 +36,4 @@ console.log(`${bucket([3,1,5,6,4,2,3])}, call should be 3`);
 console.log(`${bucket([3,1,1,1,3])}, call should be 6`);
 console.log(`${bucket([3,1,5,1,6,4,2,3])}, call should be 7`);
 console.log(`${bucket([3,1,5,4,6,2,3])}, call should be 4`);
+console.log(`${bucket([12, 1, 13])}, call should be 11`);
