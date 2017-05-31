@@ -1,13 +1,9 @@
 function bucket(arr)
 {
     let maxPos = 0;
-    let max = arr[maxPos];
     for(let i = 1; i < arr.length; i++) {
-        if(max < arr[i])
-        {
-            max = arr[i];
+        if(arr[maxPos] < arr[i])
             maxPos = i;
-        }
     }
 
     // we have the position of the maximum, so all buckets to can assume it is at least one side

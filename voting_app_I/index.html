@@ -32,16 +32,19 @@
                 border: 1px solid black;
                 height:30px;
                 width:30px;
+                line-height: 30px;
                 border-radius:50%;
                 text-align:center;
-                padding: 5px 5px;
-                margin: auto auto;
+                vertical-align: middle;
+                margin: 0 0 10px 0;
+                padding: 3px;
+                /*padding: 6px 0px 0px 0px;*/
             }
             .language .name
             {
                 /*border: 1px solid black;*/
                 text-align:center;
-                width:480px;
+                width:420px;
                 /*width:100%;*/
                 margin: auto auto;
             }
@@ -52,7 +55,9 @@
                 width:40px;
                 font-size:35px;
                 color:green;
-                font-weight: 900;
+                font-weight: bolder;
+                /*font-stretch: ultra-expanded;
+                text-shadow: 0 0 5px green;*/
                 margin: 10px;
                 margin: 5px 15px;
             }
@@ -83,7 +88,7 @@
             const Container = (props) => {
                 //const buttonProps = handleClick;
                 const languages = props.languages.map((languageObj, idx) => {
-                    return <Language key={idx} languageData={languageObj} buttonProps={handleClick(languageObj)}/>
+                    return <Language key={idx} languageData={languageObj} />
                 })
                 return (
                     <div>
@@ -93,27 +98,21 @@
                 )
                 
             }
-            function handleClick(languageObj)
-            {
-                alert('hi, languageObj.name: ' + languageObj.name);
-                console.log('the button was clicked.');
-                
-            }
             const Language = (props) => {
+                const handleClick = () => //languageObj)
+                                    {
+                                        languageData.votes++;
+                                        alert('hi, languageObj.name: ' + languageData.name + ', ' + languageData.votes);
+                                        console.log('the button was clicked.');                
+                                    }
                 const { languageData } = props;
                 const { buttonProps } = props;
-                const style = {
-                    height: '275px',
-                    width: '275px',
-                    display: 'inline-block',
-                    fontSize: '20px',
-                };
-                 const text = `${style.color} on ${style.backgroundColor}`;
+                
                 return (<div className="language">
                     <div className="vote">{languageData.votes}</div>
                     <div className="name">{languageData.name}</div>
                     <div className="plus" onClick={(e) => alert('voted for ' + languageData.name)}>&#43;</div>
-                    <button onClick={buttonProps}>Vote!</button></div>
+                    <button onClick={handleClick}>Vote!</button></div>
                 );
             }
             ReactDOM.render(
