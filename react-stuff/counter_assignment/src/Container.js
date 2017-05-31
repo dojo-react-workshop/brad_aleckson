@@ -24,7 +24,7 @@ class Container extends Component {
                 <div style={{textAlign:'left'}}>
                     <button onClick={this.handleClick}>Add Counter</button>
                 </div>
-                <div style={{textAlign:'center'}} className="my-counters">
+                <div style={{textAlign:'center'}}>
                     {counters}                   
                 </div>
             </div>
