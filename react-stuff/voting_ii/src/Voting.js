@@ -31,15 +31,27 @@ class Voting extends Component {
     handleClick(obj) {
         //console.log('I am in Voting.js, handleClick function' + this)
         const langs = this.state.languages;
-        const index = langs.findIndex(item => item.name === obj.name)
-        console.log(`index : ${index}, obj.votes: ${obj.votes}`);
-        langs[index].votes += 1;
-        // const curObj = this.state.languages[index];
-        langs.sort( (a,b) => {
-            return a.votes-b.votes
+        const newLanguages = langs.map( (lang) => {
+            if(lang.name === obj.name)
+            {
+                return {
+                    ...lang,
+                    votes: lang.votes + 1
+                }
+            }
+            return lang
         })
-
-        this.setState( { languages: langs } );
+        // const index = langs.findIndex(item => item.name === obj.name)
+        // console.log(`index : ${index}, obj.votes: ${obj.votes}`);
+        // langs[index].votes += 1;
+        // // const curObj = this.state.languages[index];
+        // langs.sort( (a,b) => {
+        //     return b.votes-a.votes
+        // })
+        newLanguages.sort( (a,b) => {
+            return b.votes-a.votes
+        })
+        this.setState( { languages: newLanguages } );
 
         // this.setState({object: [
         //     ...this.state.languages.filter(x => obj.name !== x.name),
