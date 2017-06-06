@@ -29,7 +29,6 @@ class Voting extends Component {
     }
 
     handleClick(obj) {
-        //console.log('I am in Voting.js, handleClick function' + this)
         const langs = this.state.languages;
         const newLanguages = langs.map( (lang) => {
             if(lang.name === obj.name)
@@ -41,24 +40,11 @@ class Voting extends Component {
             }
             return lang
         })
-        // const index = langs.findIndex(item => item.name === obj.name)
-        // console.log(`index : ${index}, obj.votes: ${obj.votes}`);
-        // langs[index].votes += 1;
-        // // const curObj = this.state.languages[index];
-        // langs.sort( (a,b) => {
-        //     return b.votes-a.votes
-        // })
         newLanguages.sort( (a,b) => {
             return b.votes-a.votes
         })
-        this.setState( { languages: newLanguages } );
-
-        // this.setState({object: [
-        //     ...this.state.languages.filter(x => obj.name !== x.name),
-        //     { name: `${obj.name}test`, votes: obj.votes+1}
-        // ]})
-
-        console.log(this.state.languages)
+        this.setState( { languages: newLanguages } )
+        // console.log(this.state.languages)
     }
 
     render() {
